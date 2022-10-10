@@ -35,7 +35,10 @@ def buscar_inv():
     cur = mysql.connection.cursor()
     #cur.execute('SELECT * FROM usuario WHERE nombre = %s', [nombreUser])
     #mysql.connection.commit()
-    cur.execute('SELECT * FROM usuario left join invitados on  WHERE codigo = %s', [codigo])
+    cur.execute('''SELECT u.familia
+        FROM usuario u
+        left join invitados i on u.clave_inv = i.clave_inv 
+        WHERE u.clave_inv = %s''', [codigo])
     data = cur.fetchall()
     cur.close()
     print(data[0])
