@@ -37,28 +37,33 @@
 	<div id="fh5co-started" class="fh5co-bg" style="background-image:url(/static/images/verano.png);" data-stellar-background-ratio="0.5">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-4 col-md-push-4 animate-box" style="border:2px solid #5bc0de;">
-					<p>Ingresa tu Nombre o Código de invitado y da clic en Buscar</p>
+				<div class="col-md-4 col-md-push-4 animate-box" style="border:5px solid #40c4ff;">
+					<p style="color: #060606;">Ingresa el código de invitado y da clic en Buscar</p>
 					<form action="/confirmacion/buscar" method="post">
-						<div class="row form-group">
+						<!-- <div class="row form-group">
 							<div class="col-md-6">
 								<label for="nombreUser">Nombre</label>
-								<input id="nombreUser" name="nombreUser" class="form-control" placeholder="Nombre">
+								<input type="text" id="nombreUser" name="nombreUser" class="form-control" placeholder="Nombre">
 							</div>
 							<div class="col-md-6">
 								<label for="apePat">Apellido Paterno</label>
 								<input type="text" id="apePat" name="apePat" class="form-control" placeholder="Apellido Paterno">
 							</div>
-						</div>
+						</div> -->
 
 						<div class="row form-group">
 							<div class="col-md-12">
 								<label for="email">Código</label>
-								<input type="text" id="email" class="form-control" placeholder="Código">
+								<input type="text" id="codigo" name="codigo" class="form-control" placeholder="Código" style="color: #080707">
 							</div>
 						</div>
-						<div class="form-group">
-							<input type="submit" value="Buscar" class="btn btn-primary">
+						<div class="form-group" style="text-align: center;">
+							<input type="submit" value="Buscar" class="btn btn-primary" style=" height: 42px;
+							background: #40c4ff;
+							font-size: 12px;
+							font-weight: 100;
+							padding-left: 50px;
+							padding-right: 50px;">
 						</div>
 					</form>		
 				</div>
