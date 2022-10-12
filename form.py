@@ -1,5 +1,5 @@
 #from mysql import Cursor
-from flask import Flask, render_template, url_for, request
+from flask import Flask, render_template, url_for, request, jsonify
 from flask_mysqldb import MySQL
 import mysql.connector
 
@@ -32,14 +32,17 @@ def contacto():
 def buscar_inv():
     #nombreUser  = request.form['nombreUser']
     codigo = request.form['codigo']
+    print(codigo)
     cur = mysql.connection.cursor()
-    #cur.execute('SELECT * FROM usuario WHERE nombre = %s', [nombreUser])
-    #mysql.connection.commit()
-    cur.execute('SELECT * FROM usuario left join invitados on  WHERE codigo = %s', [codigo])
-    data = cur.fetchall()
+    cur.execute('''SELECT u.familia, i.nombre
+        FROM usuario u
+        left join invitados i on u.clave_inv = i.clave_inv 
+        WHERE u.clave_inv = %s''', [codigo])
+    data_fam = cur.fetchall()
     cur.close()
-    print(data[0])
-    return render_template("contact.html") 
+
+    print(data_fam)
+    return jsonify({'result' : 'success', 'familia' : data_fam}) 
 
 
 if __name__ == "__main__":
