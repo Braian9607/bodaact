@@ -35,28 +35,15 @@
 		</div>
 	</div>
 	<div id="fh5co-started" class="fh5co-bg" style="background-color:#b95733;" data-stellar-background-ratio="0.5">
-		<div class="container" id="div_buscar">
+		<div class="container">
 			<div class="row">
-				<div class="col-md-4 col-md-push-4 animate-box" style="border:3px solid #FFB74D; height:347px;" >
+				<div class="col-md-4 col-md-push-4 animate-box"  id="div_buscar" style="border:4px solid #FFB74D; height:500px;" >
 					<h3 style="color: #FFFF; position: relative;
-					top: 1em; text-align: center;">Confirmación</h3>
+					top: 1em; text-align: center;">CONFIRMACIÓN</h3>
 					<p style="color: #FFFF; position: relative;
-					top: 2em;">Ingresa tu código de invitado </p>
-					<!--form action="/confirmacion/buscar" method="post"-->
-						<!-- <div class="row form-group">
-							<div class="col-md-6">
-								<label for="nombreUser">Nombre</label>
-								<input type="text" id="nombreUser" name="nombreUser" class="form-control" placeholder="Nombre">
-							</div>
-							<div class="col-md-6">
-								<label for="apePat">Apellido Paterno</label>
-								<input type="text" id="apePat" name="apePat" class="form-control" placeholder="Apellido Paterno">
-							</div>
-						</div> -->
-
+					top: 2em; text-align: center;">INGRESA TU CÓDIGO DE INVITADO </p>
 						<div class="row form-group">
 							<div class="col-md-12">
-								<!--label style="color: #FFFF; position: relative; top: 3em; "for="email">Código</label-->
 								<input type="text" id="codigo" name="codigo" class="form-control" placeholder="Código" style="color: #080707;
 								position: relative;
 								top: 3em;">
@@ -74,29 +61,46 @@
                             top: 7em;">buscar</button>
 							
 						</div>
-					<!--/form-->		
 				</div>
 			</div>
 			
 		</div>
-		<div class="container" id="div_confirmacion" style="display: none;">
+		<div class="container" >
 			<div class="row">
-				<div class="col-md-4 col-md-push-4 animate-box" style="border:3px solid #FFB74D; height:347px;" >
-					<h3 style="color: #FFFF; position: relative;
-					top: 1em; text-align: center;">Confirmación</h3>
-					<p style="color: #FFFF; position: relative;
-					top: 2em; text-align: center;">Familia Servin Garcia </p>
-					<label style="color: #FFFF; position: relative;
-					top: 2em;"><input type="checkbox" id="cbox1" value="first_checkbox"> Franscisco Servin </label><br>
-					<label style="color: #FFFF; position: relative;
-					top: 2em;"><input type="checkbox" id="cbox1" value="first_checkbox"> Guadalupe Garcia </label><br>
-					<label style="color: #FFFF; position: relative;
-					top: 2em;"><input type="checkbox" id="cbox1" value="first_checkbox"> Estefania Servin </label><br>
-					<label style="color: #FFFF; position: relative;
-					top: 2em;"><input type="checkbox" id="cbox1" value="first_checkbox"> Johana Servin </label><br>
+				<div class="col-md-4 col-md-push-4 animate-box" id="div_confirmacion" style="display: none; border:3px solid #FFB74D; height:347px;" >
+					<h2 style="color: #FFFF; position: relative;
+					top: 1em; text-align: center;">Invitación</h2>
+					<div id="lista-invitados"> 
+						<h4 id="familia" style="color: #FFFF; position: relative;
+					top: 2em; text-align: center;"></h4>
+					</div>
+					<div id="tablePrint" style="position: relative;
+					top: 2em;"> 
+
+					</div>
+					<div class="form-group" style="text-align: center;">
+						<button class="btn btn-primary btn_regresar" style=" height: 42px;
+						height: 35px;
+						background: #FFB74D;
+						font-size: 12px;
+						font-weight: 100;
+						padding-left: 25px;
+						padding-right: 25px;
+						position: relative;
+						top: 7em;" onClick="history.go(0);">Regresar</button>
+						<button class="btn btn-primary btn_continuar" style=" height: 42px;
+						height: 35px;
+						background: #FFB74D;
+						font-size: 12px;
+						font-weight: 100;
+						padding-left: 25px;
+						padding-right: 25px;
+						position: relative;
+						top: 7em;">Continuar</button>
+						
+					</div>
 				</div>
 			</div>
-			
 		</div>
 	</div>
 {% endblock %}

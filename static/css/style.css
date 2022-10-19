@@ -1843,4 +1843,16 @@ form label {
   opacity: 0;
 }
 
+.lista_inv {
+  color: #FFFF;
+  position: relative;
+  top: 2em;
+}
+
+.lista_inv_label {
+  color: #FFFF; 
+  position: relative;
+	top: 2em;
+}
+
 /*# sourceMappingURL=style.css.map */
