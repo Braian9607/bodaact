@@ -35,9 +35,9 @@
 		</div>
 	</div>
 	<div id="fh5co-started" class="fh5co-bg" style="background-color:#b95733;" data-stellar-background-ratio="0.5">
-		<div class="container" id="div_buscar">
+		<div class="container">
 			<div class="row">
-				<div class="col-md-4 col-md-push-4 animate-box" style="border:3px solid #FFB74D; height:347px;" >
+				<div class="col-md-4 col-md-push-4 animate-box"  id="div_buscar" style="border:3px solid #FFB74D; height:347px;" >
 					<h3 style="color: #FFFF; position: relative;
 					top: 1em; text-align: center;">Confirmación</h3>
 					<p style="color: #FFFF; position: relative;
@@ -79,24 +79,32 @@
 			</div>
 			
 		</div>
-		<div class="container" id="div_confirmacion" style="display: none;">
+		<div class="container" >
 			<div class="row">
-				<div class="col-md-4 col-md-push-4 animate-box" style="border:3px solid #FFB74D; height:347px;" >
+				<div class="col-md-4 col-md-push-4 animate-box" id="div_confirmacion" style="display: none; border:3px solid #FFB74D; height:347px;" >
 					<h3 style="color: #FFFF; position: relative;
-					top: 1em; text-align: center;">Confirmación</h3>
-					<p style="color: #FFFF; position: relative;
-					top: 2em; text-align: center;">Familia Servin Garcia </p>
-					<label style="color: #FFFF; position: relative;
-					top: 2em;"><input type="checkbox" id="cbox1" value="first_checkbox"> Franscisco Servin </label><br>
-					<label style="color: #FFFF; position: relative;
-					top: 2em;"><input type="checkbox" id="cbox1" value="first_checkbox"> Guadalupe Garcia </label><br>
-					<label style="color: #FFFF; position: relative;
-					top: 2em;"><input type="checkbox" id="cbox1" value="first_checkbox"> Estefania Servin </label><br>
-					<label style="color: #FFFF; position: relative;
-					top: 2em;"><input type="checkbox" id="cbox1" value="first_checkbox"> Johana Servin </label><br>
+					top: 1em; text-align: center;">Invitación</h3>
+					<div id="lista-invitados"> 
+						<p id="familia" style="color: #FFFF; position: relative;
+					top: 2em; text-align: center;"></p>
+					</div>
+					<div id="tablePrint"> 
+
+					</div>
+					<div class="form-group" style="text-align: center;">
+						<button class="btn btn-primary btncode" style=" height: 42px;
+						height: 35px;
+						background: #FFB74D;
+						font-size: 12px;
+						font-weight: 100;
+						padding-left: 25px;
+						padding-right: 25px;
+						position: relative;
+						top: 7em;">Continuar</button>
+						
+					</div>
 				</div>
 			</div>
-			
 		</div>
 	</div>
 {% endblock %}
