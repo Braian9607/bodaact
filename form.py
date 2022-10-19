@@ -48,18 +48,25 @@ def buscar_inv():
 
     ## Buscar Invitados 
     cur = mysql.connection.cursor()
-    cur.execute('''SELECT i.nombre
+    cur.execute('''SELECT i.nombre, i.Invitado_id, i.tipo_persona
         FROM usuario u
         left join invitados i on u.clave_inv = i.clave_inv 
         WHERE u.clave_inv = %s''', [codigo])
     data_inv = cur.fetchall()
     cur.close()
+    print("len", len(data_inv))
     invi = []
     for i in range(len(data_inv)):
-        for j in range(len(data_inv[i])):
-            invi.append(data_inv[i][j])
-    invitados = sorted(invi)
-    print('Invitados',invitados)
+        print("for",data_inv[i] )
+        invi.append({"nombre": data_inv[i][0], "id": data_inv[i][1], "type_person": data_inv[i][2]})
+    print("invit", invi)
+    
+    #invitados = sorted(invi)
+    #     for j in (data_inv[i]):
+    #         print("for_2",data_inv[i][1])
+    # #         invi.append(data_inv[i][j])
+    # invitados = sorted(invi)
+    # print('Invitados',invitados)
 
     ## Número de invitados adultos
     cur = mysql.connection.cursor()
@@ -82,7 +89,7 @@ def buscar_inv():
     
     print(cantidad_n[0][0])
 
-    return jsonify({'result' : 'success', 'familia' : familia, 'invitados' : invitados,
+    return jsonify({'result' : 'success', 'familia' : familia, 'invitados' : invi,
         'cantidad_a': cantidad_a, 'cantidad_n': cantidad_n }) 
 
 
