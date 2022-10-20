@@ -1,4 +1,6 @@
 #from mysql import Cursor
+from pickle import APPEND
+from tkinter.font import families
 from flask import Flask, render_template, url_for, request, jsonify
 from flask_mysqldb import MySQL
 import mysql.connector
@@ -33,16 +35,62 @@ def buscar_inv():
     #nombreUser  = request.form['nombreUser']
     codigo = request.form['codigo']
     print(codigo)
+   
+    ## Buscar familia 
     cur = mysql.connection.cursor()
-    cur.execute('''SELECT u.familia, i.nombre
+    cur.execute('''SELECT u.familia
         FROM usuario u
-        left join invitados i on u.clave_inv = i.clave_inv 
         WHERE u.clave_inv = %s''', [codigo])
     data_fam = cur.fetchall()
     cur.close()
+    familia = data_fam[0][0]
+    print('familia',familia)
 
-    print(data_fam)
-    return jsonify({'result' : 'success', 'familia' : data_fam}) 
+    ## Buscar Invitados 
+    cur = mysql.connection.cursor()
+    cur.execute('''SELECT i.nombre, i.Invitado_id, i.tipo_persona
+        FROM usuario u
+        left join invitados i on u.clave_inv = i.clave_inv 
+        WHERE u.clave_inv = %s''', [codigo])
+    data_inv = cur.fetchall()
+    cur.close()
+    print("len", len(data_inv))
+    invi = []
+    for i in range(len(data_inv)):
+        print("for",data_inv[i] )
+        invi.append({"nombre": data_inv[i][0], "id": data_inv[i][1], "type_person": data_inv[i][2]})
+    print("invit", invi)
+    
+    #invitados = sorted(invi)
+    #     for j in (data_inv[i]):
+    #         print("for_2",data_inv[i][1])
+    # #         invi.append(data_inv[i][j])
+    # invitados = sorted(invi)
+    # print('Invitados',invitados)
+
+    ## Número de invitados adultos
+    cur = mysql.connection.cursor()
+    cur.execute('''SELECT count(distinct i.nombre)
+        FROM usuario u
+        left join invitados i on u.clave_inv = i.clave_inv 
+        WHERE u.clave_inv = %s and i.tipo_persona = "Adulto" ''', [codigo] )
+    cantidad_a = cur.fetchall()
+    cur.close()
+    print(cantidad_a[0][0])
+    
+   ## Número de invitados niños
+    cur = mysql.connection.cursor()
+    cur.execute('''SELECT count(distinct i.nombre)
+        FROM usuario u
+        left join invitados i on u.clave_inv = i.clave_inv 
+        WHERE u.clave_inv = %s and i.tipo_persona = "Niño" ''', [codigo] )
+    cantidad_n = cur.fetchall()
+    cur.close()
+    
+    print(cantidad_n[0][0])
+
+    return jsonify({'result' : 'success', 'familia' : familia, 'invitados' : invi,
+        'cantidad_a': cantidad_a, 'cantidad_n': cantidad_n }) 
 
 
 if __name__ == "__main__":
