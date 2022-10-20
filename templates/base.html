@@ -64,6 +64,7 @@
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+	
 
 	</head>
 	<body>
@@ -81,7 +82,7 @@
 				</div>
 				<div class="col-xs-10 text-right menu-1">
 					<ul>
-						<li class="active"><a href="index.html">Inicio</a></li>
+						<li class="active"><a href="/">Inicio</a></li>
 						
 					    <li class="has-dropdown">
 							<a href="/savetodate">Save To day</a>
@@ -97,19 +98,13 @@
 
    {% block content %} {% endblock %} 
 
-	<footer id="fh5co-footer" role="contentinfo">
+	<footer id="fh5co-footer" role="contentinfo" style="background-image:url(/static/images/IMG_1142.jpg);">
 		<div class="container">
 
 			<div class="row copyright">
 				<div class="col-md-12 text-center">
 					<p>
 						<small class="block">&copy; 2022 Boda de Yazmin & Braian. All Rights Reserved.</small> 
-					</p>
-					<p>
-						<ul class="fh5co-social-icons">
-							<li><a href="#"><i class="icon-facebook"></i></a></li>
-							<li><a href="#"><i class="icon-instagram"></i></a></li>
-						</ul>
 					</p>
 				</div>
 			</div>
@@ -147,33 +142,14 @@
     <!--animacion-->
 	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 	<!-- // <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.js"></script> -->
-	<script src="/static/js/simplyCountdown.js"></script>
+	<!--script src="/static/js/simplyCountdown.js"></script-->
+	<script src="/static/js/scripts.js"></script>
 	<!-- Main -->
 	<script src="/static/js/main.js"></script>
 	<script src="/static/js/confirmacion.js"></script>
     <script>
 		AOS.init();
 	</script>
-	<script>
-    var d = new Date(new Date().getTime() + 516 * 120 * 120 * 2000);
-	//var d = new Date(new Date() );
-
-    // default example
-    simplyCountdown('.simply-countdown-one', {
-        year: d.getFullYear(),
-        month: d.getMonth() +4,
-        day: d.getDate()
-    });
-
-    //jQuery example
-    $('#simply-countdown-losange').simplyCountdown({
-        year: d.getFullYear(),
-        month: d.getMonth() +4,
-        day: d.getDate(),
-        enableUtc: false
-    });
-</script>
-
-
+	
 	</body>
 </html>
