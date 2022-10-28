@@ -92,6 +92,25 @@ def buscar_inv():
     return jsonify({'result' : 'success', 'familia' : familia, 'invitados' : invi,
         'cantidad_a': cantidad_a, 'cantidad_n': cantidad_n }) 
 
+@app.route("/confirmacion/update", methods=['POST'])
+def update_invitado():
+    #cont = request.form['cod']
+    request_data = request.get_json()
+    
+    for i in range(len(request_data)):
+        print(request_data[i], ",")
+        invitado = request_data[i]
+        cur = mysql.connection.cursor()
+        cur.execute('''UPDATE invitados 
+            SET asistencia = 1 
+            where Invitado_id in(%s)''', [invitado])
+        mysql.connection.commit()
+      
+   
+    
+    # invitados_confirmados = confirmados[0]
+    print("todo ok")
+    return jsonify({'result' : 'success'}) 
 
 if __name__ == "__main__":
     app.run(debug=True)
