@@ -54,7 +54,7 @@ $(document).ready(function(){
                     console.log('for',  filteredAdul[i].nombre)
                     myTableA+="<div class='row ng-scope adultos' ng-repeat='invitado in adultos' style=''>"
                     myTableA+="<div class='col-md-1 col-sm-1' id='select_check'>"
-                    myTableA+="<input type='checkbox' id='asistencia_check' name='asistencia_check' value='"+ filteredAdul[i].id +"' class='asistencia_check'>"
+                    myTableA+="<input type='checkbox' id='asistencia_check' name='"+filteredAdul[i].nombre+"' value='"+ filteredAdul[i].id +"' class='asistencia_check'>"
                     myTableA+="</div>"
                     myTableA+="<div class='col-md-11 col-sm-11' >"
                     myTableA+="<p class='' style='color: white; margin: auto;'>" + filteredAdul[i].nombre + "</p>"
@@ -68,7 +68,7 @@ $(document).ready(function(){
                     console.log('for',  filteredNin[i].nombre)
                     myTableN+="<div class='row ng-scope niños' ng-repeat='invitado in niños' style=''>"
                     myTableN+="<div class='col-md-1 col-sm-1' id='select_check'>"
-                    myTableN+="<input type='checkbox' id='asistencia_check_nino' name='asistencia_check_nino' value='"+ filteredNin[i].id +"' class='asistencia_check'>"
+                    myTableN+="<input type='checkbox' id='asistencia_check_nino' name='"+filteredNin[i].nombre+"' value='"+ filteredNin[i].id +"' class='asistencia_check'>"
                     myTableN+="</div>"
                     myTableN+="<div class='col-md-11 col-sm-11'>"
                     myTableN+="<p class='' style='color: white; margin: auto;'>" + filteredNin[i].nombre + "</p>"
