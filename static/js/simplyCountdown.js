@@ -260,7 +260,7 @@
 
             // Refresh immediately to prevent a Flash of Unstyled Content
             refresh();
-            interval = window.setInterval(refresh, parameters.refresh);
+            interval = window.setInterval(refresh, bind(this),parameters.refresh); //le agregue bin(this) para ios
         });
     };
 

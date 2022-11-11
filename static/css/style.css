@@ -826,6 +826,10 @@ form label {
   font-weight: normal !important;
 }
 
+#fh5co-header {
+  background-position-x: center !important;
+}
+
 #fh5co-header .display-tc,
 #fh5co-counter .display-tc,
 .fh5co-cover .display-tc {
@@ -942,10 +946,10 @@ form label {
 }
 .countdown div{
   display: inline-block;
-  width: 100px;
-  height: 100px;
-  background: #E67E22;
-  margin: 0 39px;
+  width: 140px; /*100px;*/
+  height: 140px;
+  background: #875409bf ; /*#E67E22;*/
+  margin: 0 29px; /*39px;*/
   border-radius: 50%;
   position: relative;
   animation: pulse 1s ease infinite;
